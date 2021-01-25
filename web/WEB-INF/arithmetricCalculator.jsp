@@ -14,16 +14,16 @@
     <body>
         <h1>Arithmetric Calculator</h1>
          <form method="Post" action="">
-        First:    <input type="text">
+        First:    <input type="text"name="first">
         <br>
-        Second: <input type="text">
+        Second: <input type="text"name="second">
         <br>
         <input type="Submit" value="+">
         <input type="Submit" value="-">
         <input type="Submit" value="*">
         <input type="Submit" value="%">
         </form>
-       
+       <p>${message}</p>
     </body>
     <footer><a href="ageCalcServlet">Age Calculator</a></footer>
 </html>
