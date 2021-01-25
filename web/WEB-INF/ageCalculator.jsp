@@ -14,10 +14,11 @@
     <body>
         <h1>Age Calculator</h1>
         <form method="Post" action="">
-        Enter your age: <input type="text">
+        Enter your age: <input type="text"name="ageString">
         <br>
-        <input type="Submit" value="Age next year">
+        <input type="Submit" value="Your age next year">
         </form>
+        <p>${message}</p>
     </body>
     <footer><a href="arithmetricServlet">Arithmetric Calculator</a></footer>
 </html>
