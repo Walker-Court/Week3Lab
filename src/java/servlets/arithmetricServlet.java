@@ -32,16 +32,42 @@ public class arithmetricServlet extends HttpServlet {
             throws ServletException, IOException {
         String first = request.getParameter("first");
         String second = request.getParameter("second");
-        
+        String calc = request.getParameter("calc");
+        if (request.getParameter("first").equals("")||
+            request.getParameter("first").equals(null)||
+            request.getParameter("second").equals(null)||
+            request.getParameter("second").equals(""))
+        {
+            request.setAttribute("first", first);
+            request.setAttribute("second", second);
+            request.setAttribute("message", "Invalid");
+            getServletContext().getRequestDispatcher("/WEB-INF/arithmetricCalculator.jsp").forward(request, response);
+        }
         request.setAttribute("first", first);
         request.setAttribute("second", second);
         int fNumber = Integer.parseInt(first);
         int sNumber = Integer.parseInt(second);
-        int result = fNumber + sNumber;
-        request.setAttribute("message", "your age will be:" + result);
-         getServletContext().getRequestDispatcher("/WEB-INF/arithmetricCalculator.jsp").forward(request, response);
-    }
+        int result = 0;
 
-
+        switch (calc ){
+            case "+": 
+             result = fNumber + sNumber;
+             break;
+            case "-":
+             result = fNumber - sNumber;
+             break;
+            case "*":
+             result = fNumber * sNumber;
+             break;
+            case "%":
+             result = fNumber % sNumber;
+             break;        
+        }
+        
+        request.setAttribute("message", "Result:" + result);
+        getServletContext().getRequestDispatcher("/WEB-INF/arithmetricCalculator.jsp").forward(request, response);
+    
+}
+}
 
 }

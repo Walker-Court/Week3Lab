@@ -18,10 +18,10 @@
         <br>
         Second: <input type="text"name="second">
         <br>
-        <input type="Submit" value="+">
-        <input type="Submit" value="-">
-        <input type="Submit" value="*">
-        <input type="Submit" value="%">
+        <input type="Submit" name="calc" value="+">
+        <input type="Submit" name="calc" value="-">
+        <input type="Submit" name="calc" value="*">
+        <input type="Submit" name="calc" value="%">
         </form>
        <p>${message}</p>
     </body>

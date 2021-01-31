@@ -27,12 +27,17 @@ public class ageCalcServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String ageString = request.getParameter("ageString");
-        request.setAttribute("ageString", ageString);
+        
+        if (request.getParameter("ageString").equals("")||request.getParameter("ageString").equals(null)){
+                request.setAttribute("message", "Invalid age:" );
+                getServletContext().getRequestDispatcher("/WEB-INF/ageCalculator.jsp").forward(request,response);
+        }
         int age = Integer.parseInt(ageString);
         age = age + 1;
+        
         request.setAttribute("message", "your age will be:" + age);
         getServletContext().getRequestDispatcher("/WEB-INF/ageCalculator.jsp").forward(request,response);
-        
+        request.setAttribute("ageString", ageString);
         
         
        
